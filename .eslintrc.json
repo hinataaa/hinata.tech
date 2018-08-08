@@ -22,7 +22,7 @@
 		"no-tabs"                                    : "off",                   // 关闭禁止使用 Tab
 		"no-bitwise"                                 : "error",                 // 禁止使用按位操作符
 		"no-restricted-syntax"                       : "off",                   // 关闭特定语法限制
-		"indent"                                     : ["error", "tab"],        // 只允许 Tab 缩进
+		//"indent"                                     : ["error", "tab"],        // 只允许 Tab 缩进
 		"consistent-return"                          : "error",                 // 要求 return 返回一致的类型，或是不返回
 		"global-require"                             : "off",                   // 关闭只能在头部使用 require
 		"arrow-body-style"                           : ["error", "as-needed"],  // 可以省略的时候，强制省略函数体大括号
@@ -34,12 +34,12 @@
 		}],                                                                     // Generator 函数星号向前贴
 		"react/jsx-no-bind"                          : "off",                   // 关闭 react 不准使用 bind
 		"react/prop-types"                           : "off",                   // TODO: 暂且关闭 propTypes 属性检查
-		"react/prefer-stateless-function"            : "error",                 // 如非必要强制使用 extend React.Component 方式
+		"react/prefer-stateless-function"            : "off",                 // 如非必要强制使用 extend React.Component 方式
 		"react/forbid-prop-types"                    : ["error", {
 			"forbid": ["any"]
 		}],                                                                     // 禁止在 propTypes 中使用 any
 		"react/jsx-filename-extension"               : "error",                 // 限定 jsx 文件格式(.jsx)
-		"react/jsx-indent"                           : ["error", "tab"],        // 强制 Tab 缩进
+		//"react/jsx-indent"                           : ["error", "tab"],        // 强制 Tab 缩进
 		"react/jsx-indent-props"                     : "off",                   // TODO: 暂且关闭
 		"react/no-array-index-key"                   : "off",                   // 关闭不允许使用 index 索引作为 key
 		"react/jsx-no-target-blank"                  : "error",                 // a target="_blank" 必须添加 rel="noreferrer noopener"
