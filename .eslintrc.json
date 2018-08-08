@@ -1,0 +1,71 @@
+{
+	"parser": "babel-eslint",
+	"extends": "airbnb",
+	"rules": {
+		"no-cond-assign"                             : ["error", "always"],     // 禁止条件表达式出现赋值
+		"no-console"                                 : "error",                 // 禁止使用 console
+		"no-constant-condition"                      : "error",                 // 禁止条件表达式出现常量
+		"no-debugger"                                : "error",                 // 禁止 debugger
+		"no-empty"                                   : "error",                 // 禁止空块语句
+		"no-duplicate-case"                          : "error",                 // 禁止重复 case
+		"no-dupe-keys"                               : "error",                 // 禁止对象字面量出现重复键
+		"no-ex-assign"                               : "error",                 // 禁止 catch 中给参数赋值
+		"no-script-url"                              : "error",                 // 禁止使用 javascript:url 表达式
+		"no-plusplus"                                : ["error", {
+			"allowForLoopAfterthoughts": true
+		}],                                                                     // 禁止 ++ or -- 一元操作符(for 循环除外)
+		"no-return-assign"                           : "error",                 // 禁止在 return 中赋值
+		"no-else-return"                             : "error",                 // 禁止 else 前有 return
+		"no-nested-ternary"                          : "error",                 // 禁止套用三元表达式
+		"no-use-before-define"                       : "error",                 // 禁止在变量定义前使用它
+		"no-mixed-spaces-and-tabs"                   : "error",                 // 禁止 Tab 和 空格混合使用
+		"no-tabs"                                    : "off",                   // 关闭禁止使用 Tab
+		"no-bitwise"                                 : "error",                 // 禁止使用按位操作符
+		"no-restricted-syntax"                       : "off",                   // 关闭特定语法限制
+		"indent"                                     : ["error", "tab"],        // 只允许 Tab 缩进
+		"consistent-return"                          : "error",                 // 要求 return 返回一致的类型，或是不返回
+		"global-require"                             : "off",                   // 关闭只能在头部使用 require
+		"arrow-body-style"                           : ["error", "as-needed"],  // 可以省略的时候，强制省略函数体大括号
+		"semi"                                       : ["error", "never"],      // 禁止在末尾使用分号 ";"
+		"dot-notation"                               : "off",                   // 关闭属性只能通过 "点" 操作获取，可以用 "[属性名]" 方式获取
+		"generator-star-spacing"                     : ["error", {
+			"before": false,
+			"after": true
+		}],                                                                     // Generator 函数星号向前贴
+		"react/jsx-no-bind"                          : "off",                   // 关闭 react 不准使用 bind
+		"react/prop-types"                           : "off",                   // TODO: 暂且关闭 propTypes 属性检查
+		"react/prefer-stateless-function"            : "error",                 // 如非必要强制使用 extend React.Component 方式
+		"react/forbid-prop-types"                    : ["error", {
+			"forbid": ["any"]
+		}],                                                                     // 禁止在 propTypes 中使用 any
+		"react/jsx-filename-extension"               : "error",                 // 限定 jsx 文件格式(.jsx)
+		"react/jsx-indent"                           : ["error", "tab"],        // 强制 Tab 缩进
+		"react/jsx-indent-props"                     : "off",                   // TODO: 暂且关闭
+		"react/no-array-index-key"                   : "off",                   // 关闭不允许使用 index 索引作为 key
+		"react/jsx-no-target-blank"                  : "error",                 // a target="_blank" 必须添加 rel="noreferrer noopener"
+		"react/jsx-max-props-per-line"               : ["warning", {
+			"maximum": 2,
+			"when": "multiline"
+		}],                                                                     // 限制单行 props 数量
+		"jsx-a11y/anchor-is-valid"                   : "off",                   // 不用在 Link 中添加 anchor
+		"jsx-a11y/no-static-element-interactions"    : "off",                   // 关闭无障碍(障碍人士功能)选项
+		"jsx-a11y/click-events-have-key-events"      : "off",                   // 关闭可点击元素必须绑定键盘事件
+		"require-yield"                              : "error",                 // Generator 函数必须要包含 yield
+		"import/prefer-default-export"               : "off",                   // 关闭 Node模块 单一接口规定
+		"import/no-extraneous-dependencies"          : "error",                 // eslint 禁止出现在 devDependencies 中
+		"import/extensions"                          : "off",                   // 关闭文件后缀名限制
+		"import/no-unresolved"                       : "off",                   // 关闭路径检查
+		"import/first"                               : "off"                    // 判断 import 是否在头部有 Bug，关掉
+	},
+	"parserOptions": {
+		"ecmaFeatures": {
+			"experimentalObjectRestSpread": true,
+			"jsx": true
+		}
+	},
+	"globals": {
+		"location": true,
+		"document": true,
+		"window": true
+	}
+}
