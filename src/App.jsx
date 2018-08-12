@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import logo from './logo.svg'
+import logo from '@/assets/logo.svg'
 import { Steps, Icon } from 'antd'
 import './App.css'
 
