@@ -12,6 +12,7 @@ const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const paths = require('./paths');
 const getClientEnvironment = require('./env');
+const fs = require('fs')
 
 function dir(d) {
   return path.resolve(__dirname, d)
@@ -33,6 +34,22 @@ const extractTextPluginOptions = shouldUseRelativeAssetPaths
   ? // Making sure that the publicPath goes back to to build folder.
     { publicPath: Array(cssFilename.split('/').length).join('../') }
   : {};
+
+
+const pkgPath = path.join(dir('./'), 'package.json');
+const pkg = fs.existsSync(pkgPath) ? require(pkgPath) : {};
+let theme = {};
+if (pkg.theme && typeof(pkg.theme) === 'string') {
+  let cfgPath = pkg.theme;
+  // relative path
+  if (cfgPath.charAt(0) === '.') {
+    cfgPath = path.resolve(dir('./'), cfgPath);
+  }
+  const getThemeConfig = require(cfgPath);
+  theme = getThemeConfig();
+} else if (pkg.theme && typeof(pkg.theme) === 'object') {
+  theme = pkg.theme;
+}
 
 module.exports = {
   bail: true,
@@ -142,6 +159,37 @@ module.exports = {
                 extractTextPluginOptions
               )
             ),
+          },{
+            test: /\.less$/,
+            include: dir('../node_modules'),
+            use: [
+              { loader: 'style-loader' },
+              {
+                loader: 'css-loader',
+                options: { sourceMap: true },
+              },
+              { loader: 'postcss-loader', options: { sourceMap: true } },
+              {
+                loader: 'less-loader',
+                options: {
+                  sourceMap: true,
+                  modifyVars: theme,
+                }
+              },
+            ],
+          },
+          {
+            test: /\.less$/,
+            include: dir('../src'),
+            use: [
+              { loader: 'style-loader' },
+              {
+                loader: 'css-loader',
+                options: { sourceMap: true, modules: true, localIdentName: '[local]___[hash:base64:5]' },
+              },
+              { loader: 'postcss-loader' },
+              { loader: 'less-loader' },
+            ],
           },
           {
             loader: require.resolve('file-loader'),
