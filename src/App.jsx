@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import logo from '@/assets/logo.svg'
+import Login from '@/routes/Test'
 import { Steps, Icon } from 'antd'
 import './App.css'
 
@@ -22,6 +23,7 @@ class App extends Component {
           <Step status="process" title="Pay" icon={<Icon type="loading" />} />
           <Step status="wait" title="Done" icon={<Icon type="smile-o" />} />
         </Steps>
+        <Login />
       </div>
     )
   }
